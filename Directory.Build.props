@@ -2,9 +2,13 @@
   <PropertyGroup>
     <TargetFramework>net11.0</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <Authors>Thorsten Sauter</Authors>
+    <Copyright>Copyright (c) .NET Foundation and Contributors; Copyright (c) 2026 Thorsten Sauter</Copyright>
+    <PackageProjectUrl>https://github.com/ThorstenSauter/AspNetCore.DeviceBoundSessions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ThorstenSauter/AspNetCore.DeviceBoundSessions</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 </Project>
