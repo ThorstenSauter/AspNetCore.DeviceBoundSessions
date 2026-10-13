@@ -6,6 +6,7 @@
     <VersionPrefix>0.1.0</VersionPrefix>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageTags>aspnetcore;authentication;dbsc;device-bound-sessions;security</PackageTags>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
@@ -35,6 +36,7 @@
   <ItemGroup>
     <InternalsVisibleTo Include="ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.Tests" />
     <None Include="../../README.md" Pack="true" PackagePath="/" />
+    <None Include="../../assets/icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
