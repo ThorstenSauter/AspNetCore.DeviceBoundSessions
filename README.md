@@ -52,6 +52,21 @@ Known upstream issues not yet addressed:
 `ForwardDefaultSelector` not honoured), [#69682](https://github.com/dotnet/aspnetcore/issues/69682) (multiple
 DBSC schemes).
 
+## Verifying a package
+
+Every release is built and published by this repository's `release.yml` workflow via nuget.org trusted publishing,
+with a signed GitHub build provenance attestation. nuget.org adds its own repository signature to each package, so
+the downloaded `.nupkg` itself won't match; verify the assembly inside it, which is attested too:
+
+```bash
+id=thorstensauter.aspnetcore.authentication.deviceboundsessions
+version=<version>
+curl -sSLo dbsc.nupkg "https://api.nuget.org/v3-flatcontainer/$id/$version/$id.$version.nupkg"
+unzip -o dbsc.nupkg 'lib/*' -d dbsc
+gh attestation verify dbsc/lib/net11.0/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.dll \
+  --repo ThorstenSauter/AspNetCore.DeviceBoundSessions
+```
+
 ## Building
 
 ```bash
