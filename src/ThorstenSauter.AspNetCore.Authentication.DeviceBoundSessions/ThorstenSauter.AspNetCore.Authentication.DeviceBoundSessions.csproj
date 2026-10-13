@@ -13,12 +13,23 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <IsTrimmable>true</IsTrimmable>
     <IsAotCompatible>true</IsAotCompatible>
+    <!-- Checks the package against NuGet's compatibility rules; set PackageValidationBaselineVersion after the first stable release. -->
+    <EnablePackageValidation>true</EnablePackageValidation>
   </PropertyGroup>
 
   <ItemGroup>
     <Using Include="Microsoft.AspNetCore.Authentication" />
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" />
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" PrivateAssets="all" />
+    <!-- Embeds an SPDX 3.0.1 SBOM at _manifest/spdx_3.0/manifest.spdx.json, built from packages.lock.json. -->
+    <PackageReference Include="Sbom" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Public API baseline: new or changed public members fail the build (RS0016/RS0017) until recorded here. -->
+    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
   </ItemGroup>
 
   <ItemGroup>

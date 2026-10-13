@@ -1,0 +1,82 @@
+#nullable enable
+const ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionDefaults.AuthenticationScheme = "DeviceBoundSession" -> string!
+const ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionDefaults.RefreshPath = "/.well-known/dbsc/refresh" -> string!
+const ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionDefaults.RegistrationPath = "/.well-known/dbsc/registration" -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionDefaults
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionHttpContextExtensions
+static ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionHttpContextExtensions.WriteDeviceBoundSessionRegistration(this Microsoft.AspNetCore.Http.HttpContext! context, string! sourceScheme) -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionHandler
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionHandler.DeviceBoundSessionHandler(Microsoft.Extensions.Options.IOptionsMonitor<ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions!>! options, Microsoft.Extensions.Logging.ILoggerFactory! logger, System.Text.Encodings.Web.UrlEncoder! encoder, Microsoft.AspNetCore.DataProtection.IDataProtectionProvider! dataProtectionProvider, Microsoft.Extensions.Options.IOptionsMonitor<Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions!>! cookieOptionsMonitor) -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionHandler.HandleRequestAsync() -> System.Threading.Tasks.Task<bool>!
+override ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionHandler.HandleAuthenticateAsync() -> System.Threading.Tasks.Task<Microsoft.AspNetCore.Authentication.AuthenticateResult!>!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.AllowedRefreshInitiators.get -> System.Collections.Generic.IList<string!>!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.ChallengeMaxAge.get -> System.TimeSpan
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.ChallengeMaxAge.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.DeviceBoundSessionOptions() -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.IncludeSite.get -> bool
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.IncludeSite.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RefreshPath.get -> Microsoft.AspNetCore.Http.PathString
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RefreshPath.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RefreshScheme.get -> string?
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RefreshScheme.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RegistrationPath.get -> Microsoft.AspNetCore.Http.PathString
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RegistrationPath.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RegistrationSourceScheme.get -> string?
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.RegistrationSourceScheme.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.ScopeSpecifications.get -> System.Collections.Generic.IList<ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule!>!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.SessionScheme.get -> string?
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.SessionScheme.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.ShortLivedCookieExpiration.get -> System.TimeSpan
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.ShortLivedCookieExpiration.set -> void
+override ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions.Validate(string! scheme) -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule.DeviceBoundSessionScopeRule() -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule.Domain.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule.Domain.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule.Path.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule.Path.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule.Type.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionScopeRule.Type.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential.Attributes.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential.Attributes.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential.Name.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential.Name.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential.SessionCredential() -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential.Type.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.AllowedRefreshInitiators.get -> System.Collections.Generic.List<string!>!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.AllowedRefreshInitiators.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.Continue.get -> bool
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.Continue.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.Credentials.get -> System.Collections.Generic.List<ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionCredential!>?
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.Credentials.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.RefreshUrl.get -> string?
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.RefreshUrl.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.Scope.get -> ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope?
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.Scope.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.SessionIdentifier.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.SessionIdentifier.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionInstruction.SessionInstruction() -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope.IncludeSite.get -> bool
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope.IncludeSite.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope.Origin.get -> string?
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope.Origin.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope.ScopeSpecification.get -> System.Collections.Generic.List<ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule!>!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope.ScopeSpecification.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScope.SessionScope() -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule.Domain.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule.Domain.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule.Path.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule.Path.set -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule.SessionScopeRule() -> void
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule.Type.get -> string!
+ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.SessionScopeRule.Type.set -> void
+Microsoft.Extensions.DependencyInjection.DeviceBoundSessionExtensions
+static Microsoft.Extensions.DependencyInjection.DeviceBoundSessionExtensions.AddDeviceBoundSession(this Microsoft.AspNetCore.Authentication.AuthenticationBuilder! builder, string! authenticationScheme, string! sourceScheme) -> Microsoft.AspNetCore.Authentication.AuthenticationBuilder!
+static Microsoft.Extensions.DependencyInjection.DeviceBoundSessionExtensions.AddDeviceBoundSession(this Microsoft.AspNetCore.Authentication.AuthenticationBuilder! builder, string! authenticationScheme, string! sourceScheme, System.Action<ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions!>! configureOptions) -> Microsoft.AspNetCore.Authentication.AuthenticationBuilder!
+static Microsoft.Extensions.DependencyInjection.DeviceBoundSessionExtensions.AddDeviceBoundSession(this Microsoft.AspNetCore.Authentication.AuthenticationBuilder! builder, string! sourceScheme) -> Microsoft.AspNetCore.Authentication.AuthenticationBuilder!
+static Microsoft.Extensions.DependencyInjection.DeviceBoundSessionExtensions.AddDeviceBoundSession(this Microsoft.AspNetCore.Authentication.AuthenticationBuilder! builder, string! sourceScheme, System.Action<ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions!>! configureOptions) -> Microsoft.AspNetCore.Authentication.AuthenticationBuilder!

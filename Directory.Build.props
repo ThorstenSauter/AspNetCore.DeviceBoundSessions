@@ -10,5 +10,8 @@
     <PackageProjectUrl>https://github.com/ThorstenSauter/AspNetCore.DeviceBoundSessions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ThorstenSauter/AspNetCore.DeviceBoundSessions</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
+    <!-- Reproducible restores: packages.lock.json is committed and CI (CI=true on GitHub Actions) refuses to change it. -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <RestoreLockedMode Condition="'$(CI)' == 'true'">true</RestoreLockedMode>
   </PropertyGroup>
 </Project>

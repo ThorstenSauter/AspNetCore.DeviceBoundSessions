@@ -37,11 +37,23 @@ dotnet pack src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions -c 
 - `AddDeviceBoundSession` deliberately stays in the `Microsoft.Extensions.DependencyInjection` namespace, as upstream.
 - This is security-critical code (proof JWT validation, challenge protection, cookie scoping). Prefer returning
   `null`/400 over throwing on malformed client input; a client must never be able to provoke a 500.
-- Code style: `.editorconfig`, copied from ewlv-website. Warnings are errors (`Directory.Build.props`).
+- Code style: `.editorconfig`, copied from ewlv-website. Warnings are errors (`Directory.Build.props`). CI runs
+  `dotnet format --verify-no-changes`; run `dotnet format` before committing.
+- **Public API baseline:** `PublicAPI.Shipped.txt` / `PublicAPI.Unshipped.txt` (Microsoft.CodeAnalysis.PublicApiAnalyzers).
+  Any public API change fails the build (RS0016/RS0017) until recorded: new members go into `Unshipped`; at release
+  time move them to `Shipped`. Removing or changing a `Shipped` entry is a breaking change: bump the major version
+  (or minor while 0.x) and label the PR `breaking`.
+- `EnablePackageValidation` checks the package on pack. After the first stable release, set
+  `PackageValidationBaselineVersion` to the previous version so API breaks against it fail the pack too.
 
 ## Packages and dependencies
 
 - Central package management: versions live in `Directory.Packages.props`, `PackageReference`s carry no version.
+- **Lock files:** `packages.lock.json` per project is committed; CI (`CI=true`) restores in locked mode and fails if a
+  lock file is stale. After changing a package, run `dotnet restore` and commit the updated lock files.
+- **SBOM:** [Sbom](https://github.com/SimonCropp/Sbom) embeds an SPDX 3.0.1 SBOM at
+  `_manifest/spdx_3.0/manifest.spdx.json`, built from the lock file. `pack-and-publish` attests it (with the DLL) as a
+  provenance subject; GitHub's SBOM-mode attestation only accepts SPDX 2.x/CycloneDX, so that mode isn't used.
 - `NuGet.config` clears all sources and maps everything to nuget.org; the package must never depend on a private
   feed.
 - `System.Formats.Cbor` and the Data Protection packages come from the shared framework (`net11.0` +

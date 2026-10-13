@@ -4,9 +4,9 @@
 using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
+using ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions;
 using DbscOptions = ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.DeviceBoundSessionOptions;
 
 namespace Microsoft.Extensions.DependencyInjection;
