@@ -63,11 +63,13 @@ dotnet pack src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions -c 
 
 ## CI and releases
 
-- `.github/workflows/ci.yml`: `ThorstenSauter/dotnet-actions/build-and-test` on Ubuntu and Windows, plus a pack-only
-  run of `pack-and-publish`.
+- `.github/workflows/ci.yml`: `ThorstenSauter/dotnet-actions/build-and-test` on Ubuntu and Windows, a format check,
+  and a pack-only run of `pack-and-publish`. The `main` ruleset requires only the `CI passed` gate job: add every new
+  job to its `needs:`. The ruleset also requires a squash-merged PR, signed commits and resolved review threads.
 - `.github/workflows/release.yml`: on a published GitHub release, tests again, then `pack-and-publish` pushes to
-  nuget.org via trusted publishing (OIDC, `id-token: write`, `nuget` environment, `NUGET_USER` repository variable).
-  No API key is stored anywhere.
+  nuget.org via trusted publishing (OIDC, `id-token: write`, `nuget` environment, `NUGET_USER` environment variable).
+  No API key is stored anywhere. The `nuget` environment only deploys from `v*` tags, with no admin bypass, and the
+  nuget.org trusted publishing policy is bound to `release.yml` + environment `nuget`.
 - The release tag is the package version: `v0.1.0-rc.2` → `0.1.0-rc.2`. Use a prerelease suffix while the target
   .NET version is itself a prerelease.
 - Release notes are generated from PR labels (`.github/release.yml`): `enhancement`, `bug`, `documentation`,

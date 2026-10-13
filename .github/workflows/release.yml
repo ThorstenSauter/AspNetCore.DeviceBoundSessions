@@ -27,10 +27,9 @@ jobs:
         with:
           persist-credentials: false
       - name: Build solution and run tests
-        uses: ThorstenSauter/dotnet-actions/build-and-test@92a1d05c753913432277d6f3dd1a5836da1adaa4 # v4.0.0
+        uses: ThorstenSauter/dotnet-actions/build-and-test@be6b6794832821fbad29da607b6ac88e9c74ffdf # v4.1.0
       - name: Pack and publish
-        # Pin to the release that ships pack-and-publish once it is out.
-        uses: ThorstenSauter/dotnet-actions/pack-and-publish@v4
+        uses: ThorstenSauter/dotnet-actions/pack-and-publish@be6b6794832821fbad29da607b6ac88e9c74ffdf # v4.1.0
         with:
           project-path: 'src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.csproj'
           version: ${{ github.event.release.tag_name }}
