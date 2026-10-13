@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.Tests/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.Tests.csproj" />
+  </Folder>
+</Solution>

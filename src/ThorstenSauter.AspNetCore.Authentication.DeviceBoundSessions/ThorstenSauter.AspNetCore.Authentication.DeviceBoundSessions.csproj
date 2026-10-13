@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Device Bound Session Credentials (DBSC) for ASP.NET Core cookie authentication. Community fork of the experimental Microsoft.AspNetCore.Authentication.DeviceBoundSessions package that was removed in .NET 11 RC2.</Description>
+    <PackageId>ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions</PackageId>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <Authors>Thorsten Sauter</Authors>
+    <Copyright>Copyright (c) .NET Foundation and Contributors; Copyright (c) Thorsten Sauter</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>aspnetcore;authentication;dbsc;device-bound-sessions;security</PackageTags>
+    <RepositoryUrl>https://github.com/ThorstenSauter/AspNetCore.DeviceBoundSessions</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Using Include="Microsoft.AspNetCore.Authentication" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.Tests" />
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>
