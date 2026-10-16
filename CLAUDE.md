@@ -66,10 +66,15 @@ dotnet pack src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions -c 
 - `.github/workflows/ci.yml`: `ThorstenSauter/dotnet-actions/build-and-test` on Ubuntu and Windows, a format check,
   and a pack-only run of `pack-and-publish`. The `main` ruleset requires only the `CI passed` gate job: add every new
   job to its `needs:`. The ruleset also requires a squash-merged PR, signed commits and resolved review threads.
-- `.github/workflows/release.yml`: on a published GitHub release, tests again, then `pack-and-publish` pushes to
+- `.github/workflows/release.yml`: on a published GitHub release, a `test` job (read-only token) checks that the
+  tagged commit is on `main` and tests again; only then does the `publish` job run `pack-and-publish`, pushing to
   nuget.org via trusted publishing (OIDC, `id-token: write`, `nuget` environment, `NUGET_USER` environment variable).
-  No API key is stored anywhere. The `nuget` environment only deploys from `v*` tags, with no admin bypass, and the
-  nuget.org trusted publishing policy is bound to `release.yml` + environment `nuget`.
+  Keep tests out of the publish job so test dependencies never run with OIDC/attestation permissions. No API key is
+  stored anywhere. The `nuget` environment only deploys from `v*` tags, with no admin bypass, and the nuget.org trusted
+  publishing policy is bound to `release.yml` + environment `nuget`.
+- Repo settings: only admins can create `v*` tags (no one can move or delete them), releases are immutable, Actions
+  must be SHA-pinned and come from an allowlist (GitHub, `NuGet/*`, `ThorstenSauter/*`,
+  `danielpalme/ReportGenerator-GitHub-Action`). A new third-party action must be added to that allowlist first.
 - The release tag is the package version: `v0.1.0-rc.2` → `0.1.0-rc.2`. Use a prerelease suffix while the target
   .NET version is itself a prerelease.
 - Release notes are generated from PR labels (`.github/release.yml`): `enhancement`, `bug`, `documentation`,
