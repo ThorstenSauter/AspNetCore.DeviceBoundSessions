@@ -23,6 +23,6 @@ If the issue also affects the original implementation in
 
 ## What to expect
 
-This is a small, single-maintainer project. Reports are acknowledged within a few days, and you will be kept
+This is a small, single-maintainer project. Reports are acknowledged within a week, and you will be kept
 updated on the assessment and the fix. You will be credited in the release notes unless you prefer to stay
 anonymous. There is no bug bounty.
