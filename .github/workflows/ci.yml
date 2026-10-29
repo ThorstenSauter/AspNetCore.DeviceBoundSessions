@@ -31,7 +31,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Build solution and run tests
-        uses: ThorstenSauter/dotnet-actions/build-and-test@d65e41e3be431cff9c0f910749b5fdc9203a297d # v4.3.0
+        uses: ThorstenSauter/dotnet-actions/build-and-test@f643f68f562c38e15ff461fea32d45d0c0505131 # v4.3.1
 
   format:
     name: Check formatting
@@ -63,7 +63,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Pack without publishing
-        uses: ThorstenSauter/dotnet-actions/pack-and-publish@d65e41e3be431cff9c0f910749b5fdc9203a297d # v4.3.0
+        uses: ThorstenSauter/dotnet-actions/pack-and-publish@f643f68f562c38e15ff461fea32d45d0c0505131 # v4.3.1
         with:
           project-path: 'src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.csproj'
           publish: 'false'
