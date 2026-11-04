@@ -34,7 +34,7 @@ jobs:
             exit 1
           fi
       - name: Build solution and run tests
-        uses: ThorstenSauter/dotnet-actions/build-and-test@f643f68f562c38e15ff461fea32d45d0c0505131 # v4.3.1
+        uses: ThorstenSauter/dotnet-actions/build-and-test@24a1e8284d22df874ef9259bf88e8c729804639e # v4.3.2
 
   publish:
     name: Pack and publish to nuget.org
@@ -52,7 +52,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Pack and publish
-        uses: ThorstenSauter/dotnet-actions/pack-and-publish@f643f68f562c38e15ff461fea32d45d0c0505131 # v4.3.1
+        uses: ThorstenSauter/dotnet-actions/pack-and-publish@24a1e8284d22df874ef9259bf88e8c729804639e # v4.3.2
         with:
           project-path: 'src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.csproj'
           version: ${{ github.event.release.tag_name }}
