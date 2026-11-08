@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0 # The ancestry check needs the history of main.
           persist-credentials: false
@@ -34,7 +34,7 @@ jobs:
             exit 1
           fi
       - name: Build solution and run tests
-        uses: ThorstenSauter/dotnet-actions/build-and-test@24a1e8284d22df874ef9259bf88e8c729804639e # v4.3.2
+        uses: ThorstenSauter/dotnet-actions/build-and-test@v4.3.2
 
   publish:
     name: Pack and publish to nuget.org
@@ -48,11 +48,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
       - name: Pack and publish
-        uses: ThorstenSauter/dotnet-actions/pack-and-publish@24a1e8284d22df874ef9259bf88e8c729804639e # v4.3.2
+        uses: ThorstenSauter/dotnet-actions/pack-and-publish@v4.3.2
         with:
           project-path: 'src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.csproj'
           version: ${{ github.event.release.tag_name }}

@@ -59,7 +59,7 @@ dotnet pack src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions -c 
 - `System.Formats.Cbor` and the Data Protection packages come from the shared framework (`net11.0` +
   `FrameworkReference Microsoft.AspNetCore.App`); referencing them as packages fails restore (NU1510).
 - Renovate (`.github/renovate.json`, extending `local>ThorstenSauter/renovate-config`) updates packages, the SDK in
-  `global.json`, and the SHA-pinned actions.
+  `global.json`, and the actions, regenerating `.github/workflows/actions.lock` with each action update.
 
 ## CI and releases
 
@@ -73,11 +73,12 @@ dotnet pack src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions -c 
   stored anywhere. The `nuget` environment only deploys from `v*` tags, with no admin bypass, and the nuget.org trusted
   publishing policy is bound to `release.yml` + environment `nuget`.
 - Repo settings: only admins can create `v*` tags (no one can move or delete them), releases are immutable, Actions
-  must be SHA-pinned and come from an allowlist (GitHub, `NuGet/*`, `ThorstenSauter/*`,
+  must be in `.github/workflows/actions.lock` (a "Require lockfile" policy) and come from an allowlist (GitHub, `NuGet/*`, `ThorstenSauter/*`,
   `danielpalme/ReportGenerator-GitHub-Action`). A new third-party action must be added to that allowlist first.
 - The release tag is the package version: `v0.1.0-rc.2` → `0.1.0-rc.2`. Use a prerelease suffix while the target
   .NET version is itself a prerelease.
 - Release notes are generated from PR labels (`.github/release.yml`): `enhancement`, `bug`, `documentation`,
   `breaking`, `github_actions`, `dependencies`; `ignore-for-release` drops a PR. Label every PR.
-- Pin third-party actions by full commit SHA with a trailing `# vX.Y.Z` comment.
+- Reference actions by full version tag (`@vX.Y.Z`); `.github/workflows/actions.lock` locks the commits. After changing a
+  `uses:` line by hand, run `gh actions-lock` and commit the lockfile.
 - Commit messages use Conventional Commits.
