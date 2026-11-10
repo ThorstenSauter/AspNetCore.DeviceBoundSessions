@@ -43,8 +43,9 @@ dotnet pack src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions -c 
   Any public API change fails the build (RS0016/RS0017) until recorded: new members go into `Unshipped`; at release
   time move them to `Shipped`. Removing or changing a `Shipped` entry is a breaking change: bump the major version
   (or minor while 0.x) and label the PR `breaking`.
-- `EnablePackageValidation` checks the package on pack. After the first stable release, set
-  `PackageValidationBaselineVersion` to the previous version so API breaks against it fail the pack too.
+- `EnablePackageValidation` checks the package on pack, against `PackageValidationBaselineVersion` (the last stable
+  release, so API breaks against it fail the pack too). After each stable release, once nuget.org lists it, bump the
+  baseline to that version (the pack downloads the baseline, so it must be indexed first).
 
 ## Packages and dependencies
 
