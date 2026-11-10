@@ -24,6 +24,8 @@ Once Microsoft ships DBSC support again, migrate to it; this package will be dep
 - Namespace and package id are `ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions`; the
   `AddDeviceBoundSession` extension stays in `Microsoft.Extensions.DependencyInjection`.
 - No `[Experimental("ASP0031")]` attribute, so no diagnostic to suppress.
+- Built against the .NET 11 GA SDK with runtime async (`runtime-async=on`): the runtime suspends and resumes the
+  library's async methods instead of compiler-generated state machines.
 - A registration proof with invalid UTF-8 in its `jwk` header returns 400 instead of 500
   ([dotnet/aspnetcore#69180](https://github.com/dotnet/aspnetcore/issues/69180)).
 

@@ -4,9 +4,9 @@
     "net11.0": {
       "Microsoft.AspNetCore.TestHost": {
         "type": "Direct",
-        "requested": "[11.0.0-rc.3.26522.148, )",
-        "resolved": "11.0.0-rc.3.26522.148",
-        "contentHash": "O9Rj97afDrRc0BSBwjkPz5UIXzNWLFFuTgBJtYumTzgs4Kk6Q3zb8i7XolTVoVWXkIBgDkHP3tRtOpUEP6YnvA=="
+        "requested": "[11.0.0, )",
+        "resolved": "11.0.0",
+        "contentHash": "rveyIUtr/2aYv4J5EEZr+0+p5kXzEMYVwVr5o6Bvt3J86+uRjgKn7J2rw9uUdpGRHaVn9NqbZvhUkJOMD4N0tA=="
       },
       "Microsoft.Extensions.TimeProvider.Testing": {
         "type": "Direct",

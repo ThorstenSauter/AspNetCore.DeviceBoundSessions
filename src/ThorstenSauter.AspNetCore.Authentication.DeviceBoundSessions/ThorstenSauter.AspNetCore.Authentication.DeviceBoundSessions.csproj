@@ -16,6 +16,8 @@
     <IsAotCompatible>true</IsAotCompatible>
     <!-- Checks the package against NuGet's compatibility rules; set PackageValidationBaselineVersion after the first stable release. -->
     <EnablePackageValidation>true</EnablePackageValidation>
+    <!-- Runtime async (.NET 11): the runtime, not a compiler-generated state machine, suspends and resumes this library's async methods. -->
+    <Features>$(Features);runtime-async=on</Features>
   </PropertyGroup>
 
   <ItemGroup>
