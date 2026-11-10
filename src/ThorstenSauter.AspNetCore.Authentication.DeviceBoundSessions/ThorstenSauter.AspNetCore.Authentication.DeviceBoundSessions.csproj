@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Device Bound Session Credentials (DBSC) for ASP.NET Core cookie authentication. Community fork of the experimental Microsoft.AspNetCore.Authentication.DeviceBoundSessions package that was removed in .NET 11 RC2.</Description>
     <PackageId>ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions</PackageId>
-    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionPrefix>0.1.1</VersionPrefix>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>

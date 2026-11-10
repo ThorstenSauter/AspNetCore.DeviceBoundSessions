@@ -62,12 +62,22 @@ jobs:
         uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
+      # Package validation requires an assembly version at or above the PackageValidationBaselineVersion,
+      # so CI builds are prereleases of the csproj's VersionPrefix rather than 0.0.0.
+      - name: Read version prefix
+        id: version
+        run: |
+          prefix=$(sed -n 's:.*<VersionPrefix>\(.*\)</VersionPrefix>.*:\1:p' "$PROJECT_PATH")
+          if [ -z "$prefix" ]; then echo "::error::No <VersionPrefix> in $PROJECT_PATH"; exit 1; fi
+          echo "prefix=$prefix" >> "$GITHUB_OUTPUT"
+        env:
+          PROJECT_PATH: src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.csproj
       - name: Pack without publishing
         uses: ThorstenSauter/dotnet-actions/pack-and-publish@v4.3.3
         with:
           project-path: 'src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions.csproj'
           publish: 'false'
-          version: '0.0.0-ci.${{ github.run_number }}'
+          version: '${{ steps.version.outputs.prefix }}-ci.${{ github.run_number }}'
 
   # The only check the "main" ruleset requires, so new jobs only need adding to `needs`.
   # `always()` matters: without it a failed dependency would skip this job too, and GitHub counts a

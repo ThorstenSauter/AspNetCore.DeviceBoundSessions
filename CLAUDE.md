@@ -45,7 +45,8 @@ dotnet pack src/ThorstenSauter.AspNetCore.Authentication.DeviceBoundSessions -c 
   (or minor while 0.x) and label the PR `breaking`.
 - `EnablePackageValidation` checks the package on pack, against `PackageValidationBaselineVersion` (the last stable
   release, so API breaks against it fail the pack too). After each stable release, once nuget.org lists it, bump the
-  baseline to that version (the pack downloads the baseline, so it must be indexed first).
+  baseline to that version (the pack downloads the baseline, so it must be indexed first), and bump `VersionPrefix`
+  to the next version. CI packs as `{VersionPrefix}-ci.{run}`, so its assembly version stays at or above the baseline.
 
 ## Packages and dependencies
 
